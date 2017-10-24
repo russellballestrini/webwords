@@ -67,9 +67,7 @@ Debugging
 
 Are you like me? Do your programs rarely compile or work properly the first time?
 
-Just like with programming, building docker images rarely work on the first shot.
-
-To debug you need to get the failed docker containers id:
+Just like with programming, docker images rarely build corrently on the first shot. To debug you need to get the failed docker containers id:
 
 .. code-block:: bash
  docker ps --all
