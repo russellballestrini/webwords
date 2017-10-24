@@ -15,6 +15,19 @@ keyword:
 
 The application returns an HTTP 200 response either way and the string `true` or `false` depending on if the keyword is found in the remote web page body.
 
+Once you have the application running inside docker, you will be able to run this comment to get the port that it is running on:
+
+.. code-block:: bash
+
+ docker ps
+
+Finally you will be able to see if a `keyword` exists on a `target` in a browser like this:
+
+.. code-block:: bash
+
+ http://127.0.0.1:32779/?target=https://www.remarkbox.com&keyword=potato3
+
+Note: You will need to replace the port of `32779` with the port from the `docker ps` output.
 
 go
 ========
