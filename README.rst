@@ -74,14 +74,17 @@ debugging
 
 Are you like me? Do your programs rarely compile or work properly the first time?
 
-Just like with programming, docker images rarely build corrently on the first shot. To debug you need to get the failed docker containers id:
+Just like with programming, a docker image will rarely build corrently on the first try.
+To debug you need to get the failed docker containers id:
 
 .. code-block:: bash
+
  docker ps --all
 
 Once you have the id, you can run the following to see the error:
 
 .. code-block:: bash
+
  docker logs <container-id>
 
 Debug the issue and fix your ``Dockerfile`` and retry the build until you have it working.
