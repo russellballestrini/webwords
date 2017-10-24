@@ -5,6 +5,11 @@ This repo shows how to code the same minimal web app called ``webwords`` in many
 
 It also provides a guides for building and running `webwords` as a docker image from scratch.
 
+.. contents::
+
+webwords
+=========
+
 The ``webwords`` spec is a simple web application that accepts two query parameters:
 
 target:
@@ -28,6 +33,7 @@ Finally you will be able to see if a ``keyword`` exists on a ``target`` in a bro
  http://127.0.0.1:32779/?target=https://www.remarkbox.com&keyword=potato3
 
 Note: You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
+
 
 go
 ========
@@ -62,7 +68,7 @@ To run a test container from the new image:
  docker run -d -p 8888 webwords-python
 
 
-Debugging
+debugging
 =========
 
 Are you like me? Do your programs rarely compile or work properly the first time?
