@@ -1,19 +1,19 @@
 webwords - Minimal Viable Docker
 ################################
 
-This repo shows how to code the same minimal web app called `webwords` in many different programming languages.
+This repo shows how to code the same minimal web app called ``webwords`` in many different programming languages.
 
 It also provides a guides for building and running `webwords` as a docker image from scratch.
 
-The `webwords` spec is a simple web application that accepts two query parameters:
+The ``webwords`` spec is a simple web application that accepts two query parameters:
 
 target:
- The URI `target` that you want to search.
+ The URI ``target`` that you want to search.
 
 keyword:
- The `keyword` you want to search for.
+ The ``keyword`` you want to search for.
 
-The application always returns an HTTP 200 response and the string `true` or `false` depending on if the keyword is found in the `target` web page body.
+The application always returns an HTTP 200 response and the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
 
 Once you have the application running inside docker, run this command to get the exposed port:
 
@@ -21,13 +21,13 @@ Once you have the application running inside docker, run this command to get the
 
  docker ps
 
-Finally you will be able to see if a `keyword` exists on a `target` in a browser like this:
+Finally you will be able to see if a ``keyword`` exists on a ``target`` in a browser like this:
 
 .. code-block:: bash
 
  http://127.0.0.1:32779/?target=https://www.remarkbox.com&keyword=potato3
 
-Note: You will need to replace the port of `32779` with the port from the `docker ps` output.
+Note: You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
 
 go
 ========
@@ -77,7 +77,7 @@ Once you have the id, you can run the following to see the error:
 .. code-block:: bash
  docker logs <container-id>
 
-Debug the issue and fix your `Dockerfile` and retry the build until you have it working.
+Debug the issue and fix your ``Dockerfile`` and retry the build until you have it working.
 
 You can delete old attempts by running:
 
