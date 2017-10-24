@@ -1,4 +1,2 @@
 requests
 pyramid
-setuptools
-pip

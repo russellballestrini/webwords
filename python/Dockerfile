@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:latest
 
 ENTRYPOINT ["/bin/webwords"]
 
@@ -11,5 +11,5 @@ RUN chmod 0754 /bin/webwords
 
 RUN apk --no-cache add python py-pip \
     && apk --no-cache add ca-certificates \
-    && pip install -r /tmp/requirements.txt
-    #&& apk del --purge py-pip
+    && pip install -r /tmp/requirements.txt \
+    && rm -rf /var/cache/apk/*

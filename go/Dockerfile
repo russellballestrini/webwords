@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:latest
 
 ENTRYPOINT ["/bin/webwords"]
 
@@ -16,4 +16,5 @@ RUN apk --no-cache add -t build-deps build-base go git \
     # && go build  -ldflags="-s -w" -o /bin/webwords \
     && go build -o /bin/webwords \
     && rm -rf /go \
-    && apk del --purge build-deps
+    && apk del --purge build-deps \
+    && rm -rf /var/cache/apk/*
