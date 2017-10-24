@@ -1,0 +1,4 @@
+requests
+pyramid
+setuptools
+pip
