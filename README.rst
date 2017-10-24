@@ -4,20 +4,20 @@ webwords: a minimal viable web app with docker in as many languages as possible
 The companion `webwords blog post <http://russell.ballestrini.net/webwords-is-a-minimal-viable-web-app-with-docker-in-as-many-languages-as-possible/>`_ lives here.
 
 This project shows how to code the same minimal web app called ``webwords`` in as many different programming languages as possible.
-It also provides a guides for building and running `webwords` as a docker image.
+It also provides a guides for building and running ``webwords`` as a docker image.
 
 .. contents::
 
 what is webwords
 ================
 
-The ``webwords`` spec is a simple web application that accepts two query parameters:
-
-target:
- The URI ``target`` that you want to search.
+A simple web application whose spec accepts the following two query parameters —
 
 keyword:
  The ``keyword`` you want to search for.
+
+target:
+ The URI ``target`` that you want to search.
 
 The application always returns an ``HTTP 200`` response and the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
 
@@ -27,13 +27,16 @@ Once you have the application running inside docker, run this command to get the
 
  docker ps
 
-Finally you will be able to see if a ``keyword`` exists on a ``target`` in a browser like this:
+To see if a ``keyword`` exists on a ``target`` web page, put the follwing in a browser:
 
-.. code-block:: http
+.. code-block:: txt
 
- http://127.0.0.1:32779/?target=https://www.remarkbox.com&keyword=potato3
+ http://127.0.0.1:32779/?keyword=potato&target=https://www.remarkbox.com
+
+In this example we check if the keyword ``potato`` is on the web page https://www.remarkbox.com (spoiler, it is)
 
 Note: You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
+
 
 
 go
@@ -72,10 +75,10 @@ To run a test container from the new image:
 debugging
 =========
 
-Are you like me? Do your programs rarely compile or work properly the first time?
+If you're anything like me, your programs rarely compile or work properly on the first try.
+Just like with programming, a docker image will rarely build correct the first time so you will need to learn how to debug.
 
-Just like with programming, a docker image will rarely build corrently on the first try.
-To debug you need to get the failed docker containers id:
+To debug, get the failed docker container's id:
 
 .. code-block:: bash
 
@@ -87,7 +90,7 @@ Once you have the id, you can run the following to see the error:
 
  docker logs <container-id>
 
-Debug the issue and fix your ``Dockerfile`` and retry the build until you have it working.
+Debug the issue, fix your ``Dockerfile``, and retry the build process until you have it working.
 
 You can delete old attempts by running:
 
