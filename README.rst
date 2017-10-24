@@ -23,7 +23,7 @@ Once you have the application running inside docker, run this command to get the
 
 Finally you will be able to see if a ``keyword`` exists on a ``target`` in a browser like this:
 
-.. code-block:: bash
+.. code-block:: http
 
  http://127.0.0.1:32779/?target=https://www.remarkbox.com&keyword=potato3
 
