@@ -13,7 +13,7 @@ target:
 keyword:
  The ``keyword`` you want to search for.
 
-The application always returns an HTTP 200 response and the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
+The application always returns an ``HTTP 200`` response and the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
 
 Once you have the application running inside docker, run this command to get the exposed port:
 
