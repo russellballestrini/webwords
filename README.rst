@@ -1,11 +1,11 @@
-MVD - Minimal Viable Docker
-###########################
+webwords - Minimal Viable Docker
+################################
 
-This repo holds shows how to build the same minimal web app in many different programming languages.
+This repo shows how to code the same minimal web app called `webwords` in many different programming languages.
 
-It also shows you how you can build and run a docker image of the application from scratch.
+It also provides a guides for building and running `webwords` as a docker image from scratch.
 
-The program is a simple web application that accepts two query parameters:
+The `webwords` spec is a simple web application that accepts two query parameters:
 
 target:
  The URI `target` that you want to search.
@@ -13,9 +13,9 @@ target:
 keyword:
  The `keyword` you want to search for.
 
-The application returns an HTTP 200 response either way and the string `true` or `false` depending on if the keyword is found in the remote web page body.
+The application always returns an HTTP 200 response and the string `true` or `false` depending on if the keyword is found in the `target` web page body.
 
-Once you have the application running inside docker, you will be able to run this comment to get the port that it is running on:
+Once you have the application running inside docker, run this command to get the exposed port:
 
 .. code-block:: bash
 
