@@ -7,8 +7,8 @@ It also provides a guides for building and running `webwords` as a docker image 
 
 .. contents::
 
-webwords
-=========
+what is webwords
+================
 
 The ``webwords`` spec is a simple web application that accepts two query parameters:
 
