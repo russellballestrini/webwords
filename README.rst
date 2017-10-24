@@ -1,4 +1,4 @@
-webwords - Minimal Viable Docker
+webwords - minimal viable docker
 ################################
 
 This repo shows how to code the same minimal web app called ``webwords`` in many different programming languages.
