@@ -33,9 +33,14 @@ To see if a ``keyword`` exists on a ``target`` web page, put the follwing in a b
 
  http://127.0.0.1:32779/?keyword=potato&target=https://www.remarkbox.com
 
-In this example we check if the keyword ``potato`` is on the web page https://www.remarkbox.com (spoiler, it is)
+In this example we check if the keyword ``potato`` is on the web page https://www.remarkbox.com 
 
-Note: You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
+Spoiler:
+ it is
+
+Note:
+ You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
+
 
 why is webwords
 ===============
