@@ -22,11 +22,11 @@ class HelloController < ActionController::Base
   def world
     keyword = params[:keyword]
     target = params[:target]
-	if HTTP.get(target).to_s.include? keyword
-        render plain: 'true'
-	else
-        render plain: 'false'
-	end
+    if HTTP.get(target).to_s.include? keyword
+      render plain: 'true'
+    else
+      render plain: 'false'
+    end
   end
 end
 
