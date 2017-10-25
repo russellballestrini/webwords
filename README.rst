@@ -90,6 +90,7 @@ To run a test container from the new image:
 
  docker run -d -p 8888 webwords-python
 
+
 ruby
 ========
 
@@ -105,6 +106,23 @@ To run a test container from the new image:
 .. code-block:: bash
 
  docker run -d -p 8888 webwords-ruby
+
+
+js
+========
+
+To build the docker image:
+
+.. code-block:: bash
+
+ cd js
+ docker build -t webwords-js .
+
+To run a test container from the new image:
+
+.. code-block:: bash
+
+ docker run -d -p 8888 webwords-js
 
 debugging
 =========
