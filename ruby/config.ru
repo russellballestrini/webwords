@@ -3,9 +3,7 @@
 # gem install rails
 # rackup
 # open http://localhost:9292/
-
 require 'action_controller/railtie'
-
 require "http"
 
 class HelloWorld < Rails::Application
