@@ -6,6 +6,8 @@
 
 require 'action_controller/railtie'
 
+require "http"
+
 class HelloWorld < Rails::Application
   routes.append do
     root to: 'hello#world'
@@ -18,7 +20,13 @@ end
 
 class HelloController < ActionController::Base
   def world
-    render plain: 'Hello, World!'
+    keyword = params[:keyword]
+    target = params[:target]
+	if HTTP.get(target).to_s.include? keyword
+        render plain: 'true'
+	else
+        render plain: 'false'
+	end
   end
 end
 

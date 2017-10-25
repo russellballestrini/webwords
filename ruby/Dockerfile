@@ -10,7 +10,7 @@ ADD Gemfile /app/
 
 RUN apk --update add --virtual build-dependencies build-base ruby-dev \ 
     postgresql-dev libc-dev linux-headers ca-certificates libxml2-dev libxslt-dev \
-    && gem install rails tzinfo-data \
+    && gem install rails tzinfo-data http \
     && apk del build-dependencies \
     && rm -rf /var/cache/apk/*
 

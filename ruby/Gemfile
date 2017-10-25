@@ -1,2 +1,3 @@
-rails
-tzinfo-data
+gem "rails"
+gem "tzinfo-data"
+gem "http"
