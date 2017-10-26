@@ -146,3 +146,9 @@ You can delete old attempts by running:
 .. code-block:: bash
 
  docker rm <container-id>
+ 
+You may shell into a container like this:
+
+.. code-block:: bash
+
+ docker exec -i -t <container-id> /bin/sh    
