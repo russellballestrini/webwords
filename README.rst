@@ -1,7 +1,7 @@
 webwords: a minimal viable web app with docker in as many languages as possible
 #################################################################################
 
-**The companion `webwords blog post <http://russell.ballestrini.net/webwords-is-a-minimal-viable-web-app-with-docker-in-as-many-languages-as-possible/>`_ lives here.**
+**The companion** `webwords blog post <http://russell.ballestrini.net/webwords-is-a-minimal-viable-web-app-with-docker-in-as-many-languages-as-possible/>`_ **lives here.**
 
 This project shows how to code the same minimal web app called ``webwords`` in as many different programming languages as possible.
 It also provides a guides for building and running ``webwords`` as a docker image.
