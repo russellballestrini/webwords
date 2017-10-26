@@ -21,22 +21,14 @@ target:
 
 The application always returns an ``HTTP 200`` response and the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
 
-Once you have the application running inside docker, run this command to get the exposed port:
-
-.. code-block:: bash
-
- docker ps
-
-To see if a ``keyword`` exists on a ``target`` web page, put the follwing in a browser:
+For example, to see if the word ``potato`` exists on `Remarkbox <https://www.remarkbox.com>`_, put the follwing in a browser:
 
 .. code-block:: txt
 
  http://127.0.0.1:32779/?keyword=potato&target=https://www.remarkbox.com
 
-In this example we check if the keyword ``potato`` is on the web page https://www.remarkbox.com 
-
 Spoiler:
- it is
+ potato does exist on Remarkbox, : )
 
 Note:
  You will need to replace the port of ``32779`` with the port from the ``docker ps`` output.
