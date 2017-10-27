@@ -21,7 +21,7 @@ target:
 
 The application always returns an ``HTTP 200`` response with the string ``true`` or ``false`` depending on if the keyword is found in the ``target`` web page body.
 
-For example, to see if the word ``potato`` exists on `Remarkbox <https://www.remarkbox.com>`_, put the follwing in a browser:
+For example, to see if the word ``potato`` exists on Remarkbox, put the follwing in a browser:
 
 .. code-block:: txt
 
