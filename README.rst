@@ -46,7 +46,7 @@ I think the spec of webwords is small enough for people new to any language to d
 
 Also, I needed a way to verify if a user had possession of a domain name for the `comment service <https://www.remarkbox.com>`_ I'm building and chose to code this verification program as a micro service, first with Python and later with Go. The tiny end result was webwords. 
 
-Shortly after, during a hackathon I used webwords to learn how to build Docker images for various languages and formalized the idea into a single project. 
+Shortly after, during a company hackathon at `Remind <http://engineering.remind.com/>`_ I used webwords to learn how to build Docker images for various languages and formalized the idea into a single project. 
 
 
 **What's next?**
