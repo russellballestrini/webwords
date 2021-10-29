@@ -12,7 +12,7 @@ COPY app.js /app/
 #RUN chmod 0754 /bin/webwords
 WORKDIR /app/
 
-RUN apk --no-cache add nodejs nodejs-npm ca-certificates \
+RUN apk --no-cache add nodejs npm ca-certificates \
     && npm install \
     && rm -rf /var/cache/apk/*
 
