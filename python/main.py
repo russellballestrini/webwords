@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
@@ -8,7 +8,7 @@ def home(request):
     target  = request.params.get(u'target', None)
     keyword = request.params.get(u'keyword', None)
     found = u'false'
-    print target, keyword
+    print(target, keyword)
     if target and keyword:
         resp = requests.get(target, allow_redirects=True)
         if keyword in resp.text:
@@ -20,6 +20,6 @@ if __name__ == '__main__':
         config.add_route('home', '/')
         config.add_view(home, route_name='home')
         app = config.make_wsgi_app()
-    server = make_server('0.0.0.0', 8888, app)
-    print("listening on 0.0.0.0:8888")
+    server = make_server('0.0.0.0', 31337, app)
+    print("listening on 0.0.0.0:31337")
     server.serve_forever()

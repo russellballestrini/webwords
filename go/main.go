@@ -45,6 +45,6 @@ func main() {
         io.WriteString(w, found)
     })
 
-    fmt.Println("listening on 0.0.0.0:8888")
-    log.Fatal(http.ListenAndServe(":8888", nil))
+    fmt.Println("listening on 0.0.0.0:31337")
+    log.Fatal(http.ListenAndServe(":31337", nil))
 }

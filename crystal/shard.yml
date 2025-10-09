@@ -1,0 +1,12 @@
+name: webwords
+version: 0.1.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+
+targets:
+  webwords:
+    main: src/webwords.cr
+
+crystal: 1.9.2
