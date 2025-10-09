@@ -1,0 +1,16 @@
+cabal-version: 2.4
+name: webwords
+version: 0.1.0.0
+
+executable webwords
+    main-is: Main.hs
+    build-depends: 
+        base ^>=4.16.0.0,
+        wai,
+        warp,
+        http-types,
+        bytestring,
+        text,
+        http-conduit,
+        network-uri
+    default-language: Haskell2010

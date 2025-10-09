@@ -1,0 +1,5 @@
+(lang dune 3.0)
+
+(package
+ (name webwords)
+ (depends ocaml dune lwt cohttp-lwt-unix uri lwt_ssl))

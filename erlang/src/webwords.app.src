@@ -1,0 +1,10 @@
+{application, webwords,
+ [{description, "WebWords Erlang implementation"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {webwords_app, []}},
+  {applications, [kernel, stdlib, cowboy, hackney]},
+  {env, []},
+  {modules, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}]}.

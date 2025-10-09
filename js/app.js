@@ -13,6 +13,6 @@ app.get('/', function (req, res) {
 	}
   });
 });
-app.listen(8888, function () {
-  console.log('listening on 0.0.0.0:8888');
+app.listen(31337, function () {
+  console.log('listening on 0.0.0.0:31337');
 });

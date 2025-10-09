@@ -1,0 +1,4 @@
+(executable
+ (public_name webwords)
+ (name main)
+ (libraries lwt cohttp-lwt-unix uri str lwt_ssl))

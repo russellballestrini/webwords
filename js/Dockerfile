@@ -4,7 +4,7 @@ FROM alpine:latest
 # https://github.com/nexe/nexe
 #ENTRYPOINT ["/bin/webwords"]
 
-EXPOSE 8888
+EXPOSE 31337
 
 COPY package.json /app/
 COPY app.js /app/

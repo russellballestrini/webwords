@@ -1,19 +1,14 @@
 # origin: http://blog.kontena.io/building-minimal-docker-image-for-rails/
-FROM alpine:latest
+FROM ruby:3.4.6-alpine
 
-EXPOSE 8888
+EXPOSE 31337
 
-RUN apk update && apk --update add ruby ruby-irb ruby-json ruby-rake ruby-bigdecimal ruby-io-console ruby-rdoc
+RUN apk update && apk --update add build-base yaml-dev
 
 ADD config.ru /app/  
 ADD Gemfile /app/
 
-RUN apk --update add --virtual build-dependencies build-base ruby-dev \ 
-    postgresql-dev libc-dev linux-headers ca-certificates libxml2-dev libxslt-dev \
-    && gem install bundler \
-    && cd /app ; bundle install --without development test \
-    && apk del build-dependencies \
-    && rm -rf /var/cache/apk/*
+RUN cd /app && bundle install --without development test
 
 ADD . /app  
 #RUN chown -R nobody:nogroup /app  
@@ -22,4 +17,4 @@ ADD . /app
 ENV RAILS_ENV production  
 WORKDIR /app
 
-CMD ["rackup", "-p", "8888", "-o", "0.0.0.0"]  
+CMD ["sh", "-c", "rackup -p ${PORT:-31337} -o 0.0.0.0"]  

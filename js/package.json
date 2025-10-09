@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "*",
-    "request": "*"
+    "express": "^4.18.0",
+    "request": "^2.88.0"
   },
   "repository": {
     "type": "git",
