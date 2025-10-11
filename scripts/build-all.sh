@@ -7,9 +7,9 @@ set -e
 CORES=$(nproc)
 echo "Building all WebWords implementations using $CORES parallel jobs"
 
-# List all language directories
+# List all language directories (including C variants)
 LANGUAGES=(
-    "python" "go" "js" "php" "java" "cpp" "csharp" "elixir" 
+    "python" "go" "js" "php" "java" "cpp" "c/curl" "c/libh2o" "c/nghttp2" "csharp" "elixir" 
     "awk" "rust" "perl" "ruby" "swift" "lua" "bash" "kotlin"
     "tcl" "sql" "vbnet" "brainfuck" "powershell" "matlab" 
     "prolog" "assembly" "fortran" "cobol" "odin" "v" "zig" 

@@ -42,7 +42,7 @@ all: build-all test-all ## Build and test all language implementations
 build-all: ## Build all Docker images in parallel with progress bar
 	./scripts/build-all.sh
 
-build-all-serial: build-go build-python build-js build-ruby build-php build-java build-csharp build-rust build-cpp build-c build-kotlin build-scala build-perl build-lua build-elixir build-dart build-r build-haskell build-ocaml build-fsharp build-clojure build-crystal build-nim build-erlang build-julia build-deno build-zig build-v build-odin build-bash build-cobol build-fortran build-assembly build-prolog build-matlab build-powershell build-brainfuck build-sql build-vbnet build-tcl build-awk ## Build all Docker images serially
+build-all-serial: build-go build-python build-js build-ruby build-php build-java build-csharp build-rust build-cpp build-c-curl build-c-h2o build-c-nghttp2 build-kotlin build-scala build-perl build-lua build-elixir build-dart build-r build-haskell build-ocaml build-fsharp build-clojure build-crystal build-nim build-erlang build-julia build-deno build-zig build-v build-odin build-bash build-cobol build-fortran build-assembly build-prolog build-matlab build-powershell build-brainfuck build-sql build-vbnet build-tcl build-awk ## Build all Docker images serially
 
 test-all: ## Test all built implementations concurrently using all CPU cores with random ports for speed
 	./scripts/test-all.sh
@@ -73,7 +73,7 @@ test-all-custom: ## Test all implementations with custom job count (usage: make 
 test-all-debug: ## Test all implementations with debug settings (slow startup, detailed output)
 	WEBWORDS_CONCURRENT_JOBS=2 WEBWORDS_STARTUP_WAIT=5 ./scripts/test-all.sh
 
-test-all-serial: functional-test-go functional-test-python functional-test-js functional-test-ruby functional-test-php functional-test-java functional-test-csharp functional-test-rust functional-test-cpp functional-test-c functional-test-kotlin functional-test-scala functional-test-perl functional-test-lua functional-test-elixir functional-test-dart functional-test-r functional-test-haskell functional-test-ocaml functional-test-fsharp functional-test-clojure functional-test-crystal functional-test-nim functional-test-erlang functional-test-julia functional-test-deno functional-test-zig functional-test-v functional-test-odin functional-test-bash functional-test-cobol functional-test-fortran functional-test-assembly functional-test-prolog functional-test-matlab functional-test-powershell functional-test-brainfuck functional-test-sql functional-test-vbnet functional-test-tcl functional-test-awk ## Test all implementations (old serial method)
+test-all-serial: functional-test-go functional-test-python functional-test-js functional-test-ruby functional-test-php functional-test-java functional-test-csharp functional-test-rust functional-test-cpp functional-test-c-curl functional-test-c-h2o functional-test-c-nghttp2 functional-test-kotlin functional-test-scala functional-test-perl functional-test-lua functional-test-elixir functional-test-dart functional-test-r functional-test-haskell functional-test-ocaml functional-test-fsharp functional-test-clojure functional-test-crystal functional-test-nim functional-test-erlang functional-test-julia functional-test-deno functional-test-zig functional-test-v functional-test-odin functional-test-bash functional-test-cobol functional-test-fortran functional-test-assembly functional-test-prolog functional-test-matlab functional-test-powershell functional-test-brainfuck functional-test-sql functional-test-vbnet functional-test-tcl functional-test-awk ## Test all implementations (old serial method)
 
 clean-all: clean-go clean-python clean-js clean-ruby clean-php clean-java clean-csharp clean-rust clean-cpp clean-c clean-kotlin clean-scala clean-perl clean-lua clean-elixir clean-dart clean-r clean-haskell clean-ocaml clean-fsharp clean-clojure clean-crystal clean-nim clean-erlang clean-julia clean-deno clean-zig clean-v clean-odin clean-bash clean-cobol clean-fortran clean-assembly clean-prolog clean-matlab clean-powershell clean-brainfuck clean-sql clean-vbnet clean-tcl clean-awk ## Clean all containers and images
 
@@ -221,19 +221,48 @@ clean-cpp: ## Stop and remove C++ container and image
 	# -docker rm webwords-cpp-server  # Commented out to preserve Docker cache
 	# -docker rmi webwords-cpp
 
-# C implementation
-build-c: ## Build C Docker image
-	cd c && docker build -t webwords-c .
+# C implementations (3 variants)
+build-c: build-c-curl ## Build default C Docker image (curl variant)
 
-serve-c: ## Run C container on port 31337
-	docker run -d -p 31337:31337 --name webwords-c-server webwords-c
+build-c-curl: ## Build C Docker image with libcurl
+	cd c/curl && docker build -t webwords-c-curl .
+
+build-c-h2o: ## Build C Docker image with libh2o
+	cd c/libh2o && docker build -t webwords-c-h2o .
+
+build-c-nghttp2: ## Build C Docker image with nghttp2
+	cd c/nghttp2 && docker build -t webwords-c-nghttp2 .
+
+build-c-all: build-c-curl build-c-h2o build-c-nghttp2 ## Build all C variants
+
+serve-c: ## Run C container on port 31337 (curl variant)
+	docker run -d -p 31337:31337 --name webwords-c-server webwords-c-curl
+
+serve-c-curl: ## Run C curl container on port 31337
+	docker run -d -p 31337:31337 --name webwords-c-curl-server webwords-c-curl
+
+serve-c-h2o: ## Run C H2O container on port 31337
+	docker run -d -p 31337:31337 --name webwords-c-h2o-server webwords-c-h2o
+
+serve-c-nghttp2: ## Run C nghttp2 container on port 31337
+	docker run -d -p 31337:31337 --name webwords-c-nghttp2-server webwords-c-nghttp2
 
 functional-test-c: functional-test ## Test c implementation (requires running container)
 
-clean-c: ## Stop and remove C container and image
+functional-test-c-curl: functional-test ## Test C curl implementation (requires running container)
+
+functional-test-c-h2o: functional-test ## Test C H2O implementation (requires running container)
+
+functional-test-c-nghttp2: functional-test ## Test C nghttp2 implementation (requires running container)
+
+clean-c: ## Stop and remove C container and image (curl variant)
 	-docker stop webwords-c-server
 	# -docker rm webwords-c-server  # Commented out to preserve Docker cache
-	# -docker rmi webwords-c
+	# -docker rmi webwords-c-curl
+
+clean-c-all: ## Clean all C variant containers
+	-docker stop webwords-c-server webwords-c-curl-server webwords-c-h2o-server webwords-c-nghttp2-server
+	# -docker rm webwords-c-server webwords-c-curl-server webwords-c-h2o-server webwords-c-nghttp2-server
 
 # Kotlin implementation
 build-kotlin: ## Build Kotlin Docker image
