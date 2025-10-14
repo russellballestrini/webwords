@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 RUN apk add --no-cache lua5.3 lua5.3-socket lua5.3-dev luarocks5.3 build-base openssl-dev ca-certificates
 RUN luarocks-5.3 install luasocket

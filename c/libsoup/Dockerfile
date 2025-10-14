@@ -1,10 +1,11 @@
-FROM alpine:latest
+FROM alpine:3.20
 
-# Install build dependencies (simplified - using curl for HTTP client demo)
+# Install C compiler and libsoup development libraries
 RUN apk --no-cache add \
     gcc \
     musl-dev \
-    curl-dev \
+    libsoup-dev \
+    glib-dev \
     make
 
 # Set working directory for our app

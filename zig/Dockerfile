@@ -1,4 +1,4 @@
-FROM alpine:latest AS builder
+FROM alpine:3.20 AS builder
 
 RUN apk add --no-cache curl tar xz && \
     curl -L https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz | tar -xJ && \
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 RUN /opt/zig/zig build -Doptimize=ReleaseSafe
 
-FROM alpine:latest
+FROM alpine:3.20
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /app/zig-out/bin/webwords /usr/local/bin/webwords
 

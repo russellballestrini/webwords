@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 # Install build dependencies and nghttp2
 RUN apk --no-cache add \

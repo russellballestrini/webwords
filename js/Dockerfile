@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 # maybe use something like nexe to produce binary.
 # https://github.com/nexe/nexe

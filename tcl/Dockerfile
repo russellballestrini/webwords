@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 # Install TCL packages (tcl includes basic HTTP support)
 RUN apk add --no-cache tcl ca-certificates curl

@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.20
 
 # Install C compiler and libcurl development libraries
 RUN apk --no-cache add \

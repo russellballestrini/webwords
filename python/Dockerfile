@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM python:3.13-alpine
 
 ENTRYPOINT ["/bin/webwords"]
 
@@ -9,7 +9,6 @@ COPY main.py /bin/webwords
 
 RUN chmod 0754 /bin/webwords
 
-RUN apk --no-cache add python3 py3-pip \
-    && apk --no-cache add ca-certificates \
+RUN apk --no-cache add ca-certificates \
     && pip3 install -r /tmp/requirements.txt \
     && rm -rf /var/cache/apk/*
