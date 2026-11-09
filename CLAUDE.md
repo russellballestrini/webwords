@@ -31,7 +31,7 @@ Test each implementation with these endpoints:
 **ALWAYS test the implementation works BEFORE creating README.rst files**
 
 ### Standard Build/Test Workflow
-1. `cd /home/fox/git/webwords/{language}`
+1. `cd {language}` (from our repo root)
 2. `docker build -t webwords-{language} .`
 3. `docker run -d -p 31337:31337 --name test-{language} webwords-{language}`
 4. Test both positive and negative cases

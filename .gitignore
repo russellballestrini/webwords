@@ -1,3 +1,4 @@
 go/webword
 go/webwords
 js/node_modules
+.claude/settings.local.json
